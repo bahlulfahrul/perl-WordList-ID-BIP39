@@ -1,0 +1,9 @@
+#!/bin/bash
+
+setop --diff \
+  <(perl -lne'last if /#/; s/\t.*//; next unless length >= 4; print' ../perl-WordLists-ID-Common/devdata/words-curated.txt) \
+  <(wordlist -w EN::BIP39) \
+  <(wordlist -w ES::BIP39) \
+  <(wordlist -w FR::BIP39) \
+  <(wordlist -w IT::BIP39) \
+  | perl -lne'print unless $seen{substr($_,0,4)}++' | head -n1024
