@@ -6,4 +6,4 @@ setop --diff \
   <(wordlist -w ES::BIP39) \
   <(wordlist -w FR::BIP39) \
   <(wordlist -w IT::BIP39) \
-  | perl -lne'print unless $seen{substr($_,0,4)}++' | head -n1024
+  | perl -lne'print unless $seen{substr($_,0,4)}++' | head -n2048
